@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surprise 💖</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Georgia', serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#ff9acb,#ff4f9a);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+/* Heart animation */
+.heart{
+    position:fixed;
+    color:rgba(255,20,147,0.75);
+    font-size:22px;
+    animation:floatHeart 9s linear infinite;
+}
+
+@keyframes floatHeart{
+    from{transform:translateY(0) scale(0.8);opacity:1;}
+    to{transform:translateY(-120vh) scale(1.5);opacity:0;}
+}
+
+/* IMAGE BACKGROUND GRID */
+.bg-images{
+    position:absolute;
+    inset:0;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows:repeat(2,1fr);
+    gap:3px;
+    z-index:0;
+}
+
+.bg-images img{
+    width:140px;
+    height:130px;
+    object-fit:cover;
+}
+
+/* container transparency */
+.container{
+    position:relative;
+    background:rgba(255, 0, 195, 0.45);
+    padding:35px;
+    border-radius:22px;
+    box-shadow:0 12px 40px rgba(255,20,147,0.45);
+    max-width:520px;
+    width:92%;
+    text-align:center;
+    z-index:2;
+}
+
+.page{
+    display:none;
+    position:relative;
+    animation:fade 0.8s ease;
+}
+.page.active{display:block;}
+
+@keyframes fade{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+/* keep content in front */
+.page > *:not(.bg-images){
+    position:relative;
+    z-index:5;
+}
+
+h1{color:#c2185b;margin-bottom:15px;}
+
+input{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:2px solid #e85b9f;
+    font-size:16px;
+    margin:10px 0;
+    background:transparent;
+}
+
+button{
+    padding:12px 22px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#ff1493,#ff69b4);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.love-text{
+    font-size:19px;
+    color:#ffffff;
+    line-height:1.9;
+    margin:20px 0;
+}
+
+.error{color:#ad1457;font-weight:bold;}
+.clue{
+    font-size:14px;
+    color:#000;
+    font-style:italic;
+    background:#f5b1ce;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- PAGE 1 -->
+<section class="page active" id="page1">
+    <div class="bg-images">
+        <img src="image (1).jpg"><img src="image (2).jpg"><img src="image (3).jpg">
+        <img src="image (4).jpg"><img src="image (5).jpg"><img src="image (6).jpg">
+    </div>
+    <h1>🌹 Happy Birthday 🌹</h1>
+    <p class="love-text">Idhu oru small secret… only for you 💖</p>
+    <p class="clue">💡 Clue: our first intro</p>
+    <input type="password" id="p1">
+    <button onclick="nextPage(1,'25-03-2023')">Unlock</button>
+    <p id="e1" class="error"></p>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page" id="page2">
+    <div class="bg-images">
+        <img src="image (7).jpg"><img src="image (8).jpg"><img src="image (9).jpg">
+        <img src="image (10).jpg"><img src="image (11).jpg"><img src="image (12).jpg">
+    </div>
+    <h1>💗 Page One</h1>
+    <p class="love-text">Life la neraya per varuvanga… ana vara ellarum ne aagida mudiyadhu🌷</p>
+    <p class="clue">💡 Clue: the first meet</p>
+    <input type="password" id="p2">
+    <button onclick="nextPage(2,'12-08-2025')">Next ➜</button>
+    <p id="e2" class="error"></p>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page" id="page3">
+    <div class="bg-images">
+        <img src="image (13).jpg"><img src="image (14).jpg"><img src="image (15).jpg">
+        <img src="image (16).jpg"><img src="image (17).jpg"><img src="image (18).jpg">
+    </div>
+    <h1>💞 Page Two</h1>
+    <p class="love-text">Cafe date… the first epovumey ellarukum special but that was turns to memories 🤍</p>
+    <p class="clue">💡 Clue: a cafe date</p>
+    <input type="password" id="p3">
+    <button onclick="nextPage(3,'16-08-2025')">Next ➜</button>
+    <p id="e3" class="error"></p>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page" id="page4">
+    <div class="bg-images">
+        <img src="image (19).jpg"><img src="image (20).jpg"><img src="image (21).jpg">
+        <img src="image (22).jpg"><img src="image (23).jpg"><img src="image (24).jpg">
+    </div>
+    <h1>💖 Page Three</h1>
+    <p class="love-text">Journey start pannadhu apo theriyala… en life la ne illa en life eh neya irupanu ana ipo ne ilana life eh illadha maari iruku 🌹</p>
+    <p class="clue">💡 Clue: the journey from start to till now with you</p>
+    <input type="password" id="p4">
+    <button onclick="nextPage(4,'2023-2026')">Next ➜</button>
+    <p id="e4" class="error"></p>
+</section>
+
+<!-- PAGE 5 -->
+<section class="page" id="page5">
+    <div class="bg-images">
+        <img src="image (25).jpg"><img src="image (26).jpg"><img src="image (27).jpg">
+        <img src="image (28).jpg"><img src="image (29).jpg"><img src="image (30).jpg">
+    </div>
+    <h1>💝 Page Four</h1>
+    <p class="love-text">ne eppo en life la vandhiyo apo ellam maruchu every day Special day… special soul… special feeling ❤️</p>
+    <p class="clue">💡 Clue: the special day</p>
+    <input type="password" id="p5">
+    <button onclick="nextPage(5,'26-02-2026')">Next ➜</button>
+    <p id="e5" class="error"></p>
+</section>
+
+<!-- PAGE 6 -->
+<section class="page" id="page6">
+    <div class="bg-images">
+        <img src="image (31).jpg"><img src="image (32).jpg"><img src="image (33).jpg">
+        <img src="image (34).jpg"><img src="image (35).jpg"><img src="image (36).jpg">
+    </div>
+    <h1>🌹 Forever</h1>
+    <p class="love-text">
+        HAPPY BIRTHDAY mine ❤️<br>
+        IPO MARIYEH LIFE LONG HAPPY AH IRU
+    </p>
+</section>
+
+</div>
+
+<script>
+function nextPage(current, correct){
+    const input = document.getElementById("p"+current).value;
+    const err = document.getElementById("e"+current);
+
+    if(input === correct){
+        document.getElementById("page"+current).classList.remove("active");
+        document.getElementById("page"+(current+1)).classList.add("active");
+        err.textContent="";
+    }else{
+        err.textContent="❌ Konjam yosichu try pannu 😅";
+    }
+}
+
+/* floating hearts */
+function createHeart(){
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"vw";
+    h.style.fontSize=18+Math.random()*18+"px";
+    h.style.animationDuration=6+Math.random()*5+"s";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),10000);
+}
+setInterval(createHeart,500);
+</script>
+
+</body>
+</html>
